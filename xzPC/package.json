@@ -1,8 +1,8 @@
 {
   "name": "yudao-ui-admin",
   "version": "1.5.0-snapshot",
-  "description": "芋道管理系统",
-  "author": "芋道",
+  "description": "婺服查管理系统",
+  "author": "婺服查",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve",

@@ -1,0 +1,133 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    // {
+    //     "path" : "pages/logging",
+    //     "style" :
+    //     {
+    //         "navigationBarTitleText": "登陆中",
+    //         "enablePullDownRefresh": false
+    //     }
+    
+    // },
+		// {
+		// 	"path": "pages/login",
+		// 	"style": {
+		// 		"navigationBarTitleText": ""
+		// 	}
+		// },
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		}
+	    ,{
+            "path" : "pages/ssp/index",
+            "style" :
+            {
+                "navigationBarTitleText": "婺城区街面秩序投诉举报",
+                "enablePullDownRefresh": false
+            }
+
+        },
+		
+        {
+            "path" : "pages/ssp/sspList",
+            "style" :
+            {
+                "navigationBarTitleText": "发现列表",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/ssp/ssp",
+            "style" :
+            {
+                "navigationBarTitleText": "随手拍",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/ssp/sspDetil",
+            "style" :
+            {
+                "navigationBarTitleText": "案件评价",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/ssp/sspHelp",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+
+        ,{
+            "path" : "pages/carMap/carMap",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/detail/detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "事项详情",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
+		    "path" : "pages/404",
+		    "style" :
+		    {
+		        "navigationBarTitleText": "404",
+		        "enablePullDownRefresh": false
+		    }
+
+		}
+        ,{
+            "path" : "pages/ywtb/list/list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/ywtb/add/add",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/ywtb/affair/affair",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+    "navigationStyle":"custom"
+	}
+}

@@ -68,7 +68,8 @@ export const constantRoutes = [
         meta: {title: '首页', icon: 'dashboard', affix: true}
       }
     ]
-  }, {
+  },
+  {
     path: '/user',
     component: Layout,
     hidden: true,
@@ -80,7 +81,8 @@ export const constantRoutes = [
         meta: {title: '个人中心', icon: 'user'}
       }
     ]
-  }, {
+  },
+  {
     path: '/dict',
     component: Layout,
     hidden: true,
@@ -91,7 +93,8 @@ export const constantRoutes = [
         meta: {title: '字典数据', icon: '', activeMenu: '/system/dict'}
       }
     ]
-  }, {
+  },
+  {
     path: '/job',
     component: Layout,
     hidden: true,
@@ -102,7 +105,8 @@ export const constantRoutes = [
         meta: {title: '调度日志', activeMenu: '/infra/job'}
       }
     ]
-  }, {
+  },
+  {
     path: '/codegen',
     component: Layout,
     hidden: true,
@@ -113,7 +117,8 @@ export const constantRoutes = [
         meta: {title: '修改生成配置', activeMenu: '/tool/codegen'}
       }
     ]
-  }, {
+  },
+  {
     path: '/bpm',
     component: Layout,
     hidden: true,
@@ -130,7 +135,28 @@ export const constantRoutes = [
         meta: {title: '查看 OA 请假', icon: 'view', activeMenu: '/bpm/oa/leave'}
       }
     ]
-  }, {
+  },
+  {
+    path: '/bpm',
+    component: Layout,
+    hidden: true,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'ywtb/clsp/approval',
+        component: (resolve) => require(['@/views/bpm/ywtb/clsp/approval'], resolve),
+        name: '审批详情',
+        meta: {title: '审批详情', icon: 'view', activeMenu: '/bpm/ywtb/clsp'}
+      },
+      {
+        path: 'ywtb/clsp/detail',
+        component: (resolve) => require(['@/views/bpm/ywtb/clsp/detail'], resolve),
+        name: '查看详情',
+        meta: {title: '查看详情', icon: 'view', activeMenu: '/bpm/ywtb/clsp'}
+      }
+    ]
+  },
+  {
     path: '/bpm',
     component: Layout,
     hidden: true,

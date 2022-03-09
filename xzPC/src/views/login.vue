@@ -2,11 +2,11 @@
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">婺服查</h3>
-      <el-form-item prop="tenantName">
+      <!-- <el-form-item prop="tenantName">
         <el-input v-model="loginForm.tenantName" type="text" auto-complete="off" placeholder='租户'>
           <svg-icon slot="prefix" icon-class="tree" class="el-input__icon input-icon" />
         </el-input>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
           <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />
@@ -33,18 +33,18 @@
         </el-button>
       </el-form-item>
 
-      <el-form-item style="width:100%;">
+      <!-- <el-form-item style="width:100%;">
           <div class="oauth-login" style="display:flex">
             <div class="oauth-login-item" v-for="item in SysUserSocialTypeEnum" :key="item.type" @click="doSocialLogin(item)">
               <img :src="item.img" height="25px" width="25px" alt="登录" >
               <span>{{item.title}}</span>
             </div>
         </div>
-      </el-form-item>
+      </el-form-item> -->
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2020-2021 iocoder.cn All Rights Reserved.</span>
+      <!-- <span>Copyright © 2020-2021 iocoder.cn All Rights Reserved.</span> -->
     </div>
   </div>
 </template>
@@ -64,7 +64,7 @@ export default {
       captchaEnable: true,
       loginForm: {
         username: "admin",
-        password: "admin123",
+        password: "123456",
         rememberMe: false,
         code: "",
         uuid: "",
