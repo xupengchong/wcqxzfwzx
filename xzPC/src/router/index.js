@@ -137,22 +137,22 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/bpm',
+    path: '/eap',
     component: Layout,
     hidden: true,
     redirect: 'noredirect',
     children: [
       {
         path: 'ywtb/clsp/approval',
-        component: (resolve) => require(['@/views/bpm/ywtb/clsp/approval'], resolve),
+        component: (resolve) => require(['@/views/eap/ywtb/clsp/approval'], resolve),
         name: '审批详情',
-        meta: {title: '审批详情', icon: 'view', activeMenu: '/bpm/ywtb/clsp'}
+        meta: {title: '审批详情', icon: 'view', activeMenu: '/eap/ywtb/clsp'}
       },
       {
         path: 'ywtb/clsp/detail',
-        component: (resolve) => require(['@/views/bpm/ywtb/clsp/detail'], resolve),
+        component: (resolve) => require(['@/views/eap/ywtb/clsp/detail'], resolve),
         name: '查看详情',
-        meta: {title: '查看详情', icon: 'view', activeMenu: '/bpm/ywtb/clsp'}
+        meta: {title: '查看详情', icon: 'view', activeMenu: '/eap/ywtb/clsp'}
       }
     ]
   },

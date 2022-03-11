@@ -70,6 +70,7 @@
     "node-sass": "4.14",
     "regenerator-runtime": "^0.12.1",
     "vue": "^2.6.11",
+    "vue-pdf": "^4.3.0",
     "vuex": "^3.2.0"
   },
   "devDependencies": {

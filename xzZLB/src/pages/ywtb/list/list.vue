@@ -3,7 +3,8 @@
 		<Zlist :list="list" @moveList="moveList">
 			<template v-slot:btn="btn">
 				<view class="lists-item-but" >
-					<u-button class="btn" type="primary" shape="circle" :plain="true" @click.native.stop="movePetition(btn.id)">申请书</u-button>
+					<u-button class="btn" type="primary" shape="circle" :plain="true" @click.native.stop="movePetition(btn.id)">申请通知书</u-button>
+					<u-button class="btn" type="primary" shape="circle" :plain="true" @click.native.stop="movePetition(btn.id)">申请调查令</u-button>
 					<u-button class="btn" type="primary" shape="circle" :plain="true"  @click.native.stop="moveAffair(btn.id)">事项选择</u-button>
 				</view>
 			</template>
@@ -13,7 +14,7 @@
 </template>
 
 <script>
-	import Zlist from '/src/components/list.vue'
+	import Zlist from '@/components/list.vue'
 	export default {
 		data() {
 			return {
@@ -61,7 +62,8 @@
 		display: flex;
 		justify-content: space-between;
 		.btn{
-			width: 30%;
+			width: 32%;
+			white-space: nowrap;
 		}
 	}
 }

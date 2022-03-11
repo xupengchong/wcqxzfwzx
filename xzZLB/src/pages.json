@@ -7,7 +7,7 @@
     //         "navigationBarTitleText": "登陆中",
     //         "enablePullDownRefresh": false
     //     }
-    
+
     // },
 		// {
 		// 	"path": "pages/login",
@@ -30,7 +30,7 @@
             }
 
         },
-		
+
         {
             "path" : "pages/ssp/sspList",
             "style" :
@@ -60,31 +60,31 @@
         }
         ,{
             "path" : "pages/ssp/sspHelp",
-            "style" :                                                                                    
+            "style" :
             {
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
-            
+
         }
 
         ,{
             "path" : "pages/carMap/carMap",
-            "style" :                                                                                    
+            "style" :
             {
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
-            
+
         }
         ,{
             "path" : "pages/detail/detail",
-            "style" :                                                                                    
+            "style" :
             {
                 "navigationBarTitleText": "事项详情",
                 "enablePullDownRefresh": false
             }
-            
+
         },
 		{
 		    "path" : "pages/404",
@@ -97,27 +97,126 @@
 		}
         ,{
             "path" : "pages/ywtb/list/list",
-            "style" :                                                                                    
+            "style" :
             {
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
-            
+
         }
         ,{
             "path" : "pages/ywtb/add/add",
-            "style" :                                                                                    
+            "style" :
             {
                 "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/ywtb/affair/affair",
+            "style" :
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/credentials/credentials",
+            "style" :
+            {
+                "navigationBarTitleText": "我的证件",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/zcfw/notice/list/list",
+            "style" :
+            {
+                "navigationBarTitleText": "通知公告",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/zcfw/notice/detail/detail",
+            "style" :
+            {
+                "navigationBarTitleText": "通知公告详情",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/zcfw/table/list/list",
+            "style" :
+            {
+                "navigationBarTitleText": "表格下载",
+                "enablePullDownRefresh": false
+            }
+        
+        }
+        ,{
+            "path" : "pages/zcfw/laws/list/list",
+            "style" :
+            {
+                "navigationBarTitleText": "法律法规",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/zcfw/laws/detail/detail",
+            "style" :
+            {
+                "navigationBarTitleText": "法律法规详情",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/zcfw/barAssociation/barAssociation",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "律师协会",
                 "enablePullDownRefresh": false
             }
             
         }
         ,{
-            "path" : "pages/ywtb/affair/affair",
+            "path" : "pages/ywtb/evaluate/evaluate",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "评价",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+,{
+            "path" : "pages/ywtb/applyDetail/applyDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "申请表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/ywtb/promise/promise",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "申请人承诺",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/ywtb/matterDetail/matterDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "详情",
                 "enablePullDownRefresh": false
             }
             

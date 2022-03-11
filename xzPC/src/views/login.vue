@@ -2,11 +2,11 @@
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">婺服查</h3>
-      <!-- <el-form-item prop="tenantName">
+      <el-form-item prop="tenantName">
         <el-input v-model="loginForm.tenantName" type="text" auto-complete="off" placeholder='租户'>
           <svg-icon slot="prefix" icon-class="tree" class="el-input__icon input-icon" />
         </el-input>
-      </el-form-item> -->
+      </el-form-item>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
           <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />

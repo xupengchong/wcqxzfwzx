@@ -2,10 +2,10 @@
   <view class="main">
     <view class="bigImg">
 		<view class="titleImg">
-			<u--image  :show-loading="true" src="../../static/big.png" width="100%" mode="widthFix" /> 
+			<u--image  :show-loading="true" src="../../static/big.png" width="100%" mode="widthFix" />
 			<view class="bigImgTxt">
 				<p>提高行动效力</p>
-				<p class="text">进步公务员素质</p>	
+				<p class="text">进步公务员素质</p>
 			</view>
 		</view>
 		<template v-for="(v, i) in listDatas">
@@ -14,7 +14,7 @@
 		</template>
     </view>
     <div class="footer">本服务由政府服务网、金华市婺城区行政服务中心提供</div>
-    <div class="lowV" @click="isLow">{{ lowTitle }}</div>
+    <!-- <div class="lowV" @click="isLow">{{ lowTitle }}</div> -->
   </view>
 </template>
 
@@ -31,26 +31,26 @@ export default {
           title: '快速办事',
           lowColor: '#e63633',
           list: [
-            {icon: '../../static/icon/lasq.png', title: '一网通办', hint: '我的足迹|评价',url:'pages/ywtb/list/list'},
-            {icon: '../../static/icon/dcsq.png', title: '我要申请', hint: '我的足迹|评价'},
-            {icon: '../../static/icon/wdaj.png', title: '我的案件', hint: '办理|评价',url:'pages/detail/detail'},
-            {icon: '../../static/icon/wdzj.png', title: '我的证件', hint: '我的足迹|评价'},
+            {icon: '../../static/icon/lasq.png', title: '一网通办', hint: '我的足迹|评价',url:'pages/ywtb/add/add'},
+            {icon: '../../static/icon/dcsq.png', title: '我要申请', hint: '我的足迹|评价',url:'pages/ywtb/list/list'},
+            {icon: '../../static/icon/wdaj2.png', title: '我的案件', hint: '办理|评价',url:'pages/ywtb/list/list'},
+            {icon: '../../static/icon/wdzj.png', title: '我的证件', hint: '我的足迹|评价',url:'pages/credentials/credentials'},
           ]
         },
         {
           title: '快速申请',
           lowColor: '#eb6c3a',
           list: [
-            {icon: '../../static/icon/dj.png', title: '户籍信息', hint: '户籍信息查询'},
-            {icon: '../../static/icon/xz2.png', title: '流动人口', hint: '流动人口信息查询'},
-						{icon: '../../static/icon/zc.png', title: '亲属关系', hint: '亲属关系'},
-            {icon: '../../static/icon/dl.png', title: '死亡注销', hint: '死亡注销信息查询'},
+            {icon: '../../static/icon/hjxx.png', title: '户籍信息', hint: '户籍信息查询',url:'pages/ywtb/applyDetail/applyDetail'},
+            {icon: '../../static/icon/ldrk.png', title: '流动人口', hint: '流动人口信息查询',url:'pages/ywtb/applyDetail/applyDetail'},
+						{icon: '../../static/icon/qsgx.png', title: '亲属关系', hint: '亲属关系',url:'pages/ywtb/applyDetail/applyDetail'},
+            {icon: '../../static/icon/swzx.png', title: '死亡注销', hint: '死亡注销信息查询',url:'pages/ywtb/applyDetail/applyDetail'},
             {icon: '../../static/icon/zf.png', title: '工商信息', hint: '工商登记信息查询'},
-            {icon: '../../static/icon/zf.png', title: '房产信息', hint: '工商登记信息查询'},
-						{icon: '../../static/icon/zx.png', title: '车辆信息', hint: '车辆登记'},
-						{icon: '../../static/icon/zx.png', title: '婚姻信息', hint: '婚姻登记'},
-						{icon: '../../static/icon/zc.png', title: '出生信息', hint: '出生证明'},
-						{icon: '../../static/icon/zc.png', title: '社保信息', hint: '社保信息'},
+            {icon: '../../static/icon/fcxx.png', title: '房产信息', hint: '房产信息查询'},
+						{icon: '../../static/icon/cldj.png', title: '车辆信息', hint: '车辆登记'},
+						{icon: '../../static/icon/hyxx.png', title: '婚姻信息', hint: '婚姻登记'},
+						{icon: '../../static/icon/csxx.png', title: '出生信息', hint: '出生证明'},
+						{icon: '../../static/icon/sbxx.png', title: '社保信息', hint: '社保信息'},
 			// {icon: '../../static/icon/zc.png', title: '知识产权信息', hint: '产权信息'},
           ]
         },
@@ -58,10 +58,10 @@ export default {
           title: '政策服务',
           lowColor: '#2fa78e',
           list: [
-			  {icon: '../../static/icon/zx.png', title: '通知公告', hint: '通知公告'},
-			  {icon: '../../static/icon/zx.png', title: '法律法规', hint: '法律法规'},
-			  {icon: '../../static/icon/zc.png', title: '表格下载', hint: '表格下载'},
-			  {icon: '../../static/icon/zc.png', title: '律师协会', hint: '律师协会'},
+			  {icon: '../../static/icon/tzgg.png', title: '通知公告', hint: '通知公告',url:'pages/zcfw/notice/list/list'},
+			  {icon: '../../static/icon/zc.png', title: '法律法规', hint: '法律法规',url:'pages/zcfw/laws/list/list'},
+			  {icon: '../../static/icon/bgxz.png', title: '表格下载', hint: '表格下载',url:'pages/zcfw/table/list/list'},
+			  {icon: '../../static/icon/lsxh.png', title: '律师协会', hint: '律师协会',url:'pages/zcfw/barAssociation/barAssociation'},
 		  ]
         },
         // {
