@@ -34,8 +34,8 @@ export default {
             {icon: '../../static/icon/lasq.png', title: '一网通办', hint: '我的足迹|评价',url:'pages/ywtb/add/add'},
             {icon: '../../static/icon/dcsq.png', title: '我要申请', hint: '我的足迹|评价',url:'pages/ywtb/list/list'},
             {icon: '../../static/icon/wdaj2.png', title: '我的案件', hint: '办理|评价',url:'pages/ywtb/list/list'},
-            {icon: '../../static/icon/wdzj.png', title: '我的证件', hint: '我的足迹|评价',url:'pages/credentials/credentials'},
-          ]
+            {icon: '../../static/icon/wdzj.png', title: '我的证件', hint: '我的足迹|评价',url:'pages/ywtb/credentials/credentials'},
+          ] 
         },
         {
           title: '快速申请',

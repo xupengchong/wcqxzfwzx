@@ -50,6 +50,61 @@
             title:'通知公告2',
             issueDept:'金华市婺城区行政服务中心',
             issueTime:'2022-3-10'
+          },{
+            id:0,
+            title:'通知公告1',
+            issueDept:'金华市婺城区行政服务中心',
+            issueTime:'2022-3-10'
+          },
+          {
+            id:1,
+            title:'通知公告2',
+            issueDept:'金华市婺城区行政服务中心',
+            issueTime:'2022-3-10'
+          },{
+            id:0,
+            title:'通知公告1',
+            issueDept:'金华市婺城区行政服务中心',
+            issueTime:'2022-3-10'
+          },
+          {
+            id:1,
+            title:'通知公告2',
+            issueDept:'金华市婺城区行政服务中心',
+            issueTime:'2022-3-10'
+          },{
+            id:0,
+            title:'通知公告1',
+            issueDept:'金华市婺城区行政服务中心',
+            issueTime:'2022-3-10'
+          },
+          {
+            id:1,
+            title:'通知公告2',
+            issueDept:'金华市婺城区行政服务中心',
+            issueTime:'2022-3-10'
+          },{
+            id:0,
+            title:'通知公告1',
+            issueDept:'金华市婺城区行政服务中心',
+            issueTime:'2022-3-10'
+          },
+          {
+            id:1,
+            title:'通知公告2',
+            issueDept:'金华市婺城区行政服务中心',
+            issueTime:'2022-3-10'
+          },{
+            id:0,
+            title:'通知公告1',
+            issueDept:'金华市婺城区行政服务中心',
+            issueTime:'2022-3-10'
+          },
+          {
+            id:1,
+            title:'通知公告2',
+            issueDept:'金华市婺城区行政服务中心',
+            issueTime:'2022-3-10'
           }
         ],
 				status: 'nomore'
@@ -140,7 +195,8 @@
 	left: 0;
 	// z-index: 10;
 	/* #ifdef H5 */
-	top: 22px;
+	// top: 22px;
+	padding-top: 22px;
 	/* #endif */
 	&-left {
     display: flex;

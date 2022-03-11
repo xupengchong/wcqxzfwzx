@@ -11,30 +11,30 @@
             :label="item.name" />
         </u-radio-group>
       </u-form-item>
-      <u-form-item label="出生日期：" prop="mBirth" borderBottom>
+      <!-- <u-form-item label="出生日期：" prop="mBirth" borderBottom> -->
         <!--  @click="handleShow('mBirth')" -->
-        <u--input v-model="form.mBirth" readonly border="none" placeholder="请输入出生日期"></u--input>
+        <!-- <u--input v-model="form.mBirth" readonly border="none" placeholder="请输入出生日期"></u--input> -->
         <!-- <u-datetime-picker :show="showHappenDate" :minDate="1900" v-model="dateTime" mode="date" -->
         <!-- @confirm="(res) => handleHpDateCon(res, 'mBirth')"></u-datetime-picker> -->
-      </u-form-item>
-      <u-form-item label="证件名称：" prop="mCardName" borderBottom>
+     <!-- </u-form-item> -->
+      <!-- <u-form-item label="证件名称：" prop="mCardName" borderBottom>
         <u--input v-model="form.mCardName" readonly border="none" placeholder="请输入证件名称"></u--input>
-      </u-form-item>
-      <u-form-item label="号码：" prop="mCardCode" borderBottom>
+      </u-form-item> -->
+      <u-form-item label="证件号码：" prop="mCardCode" borderBottom>
         <u--input v-model="form.mCardCode" readonly border="none" placeholder="请输入号码"></u--input>
       </u-form-item>
       <u-form-item label="工作单位：" prop="mWorkName" borderBottom>
         <u--input v-model="form.mWorkName" readonly border="none" placeholder="请输入工作单位"></u--input>
       </u-form-item>
-      <u-form-item label="联系地址：" prop="mAddress" borderBottom>
+      <!-- <u-form-item label="联系地址：" prop="mAddress" borderBottom>
         <u--input v-model="form.mAddress" readonly border="none" placeholder="请输入联系地址"></u--input>
-      </u-form-item>
+      </u-form-item> -->
       <u-form-item label="联系电话：" prop="mPhone" borderBottom>
         <u--input v-model="form.mPhone" readonly border="none" placeholder="请输入联系电话"></u--input>
       </u-form-item>
-      <u-form-item label="邮政编码：" prop="mPostalCode">
+     <!-- <u-form-item label="邮政编码：" prop="mPostalCode">
         <u--input v-model="form.mPostalCode" readonly border="none" placeholder="请输入邮政编码"></u--input>
-      </u-form-item>
+      </u-form-item> -->
 
       <u-gap height="10" bgColor="#f3f3f3" style="margin: 0 -30rpx"></u-gap>
       <h3 class="title" style="padding-top: 20rpx;">被查询人情况</h3>

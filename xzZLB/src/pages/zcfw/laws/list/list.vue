@@ -140,7 +140,8 @@
 	left: 0;
 	// z-index: 10;
 	/* #ifdef H5 */
-	top: 22px;
+	// top: 22px;
+	padding-top: 22px;
 	/* #endif */
 	&-left {
     display: flex;

@@ -52,6 +52,7 @@
 <style lang="scss" scoped>
 .main{
 	padding: 0 32rpx;
+	background-color: #FFF;
 	.jumpAdd{
 		position: fixed;
 		right: 32rpx;

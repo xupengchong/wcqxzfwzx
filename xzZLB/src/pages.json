@@ -123,7 +123,7 @@
 
         }
         ,{
-            "path" : "pages/credentials/credentials",
+            "path" : "pages/ywtb/credentials/credentials",
             "style" :
             {
                 "navigationBarTitleText": "我的证件",

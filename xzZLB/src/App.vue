@@ -157,7 +157,7 @@ export default {
 	/*每个页面公共css */
 	page{
 		background-color: #f6f7f8;
-    padding: 16px 0;
+    /* padding: 16px 0; */
 	}
 	.amap-logo,.amap-copyright{
 		display: none !important;
