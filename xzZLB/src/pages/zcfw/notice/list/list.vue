@@ -159,7 +159,7 @@
         // this.searchValue = ''
 			},
 			handleOpen(id) {
-				this.$u.route({ url: 'pages/notice/detail/detail', params: { id } })
+				this.$u.route({ url: 'pages/zcfw/notice/detail/detail', params: { id } })
 			}
 		},
 		onLoad() {

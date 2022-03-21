@@ -15,7 +15,7 @@
 		    length="140rpx"
 		    color="#E6E8EB"
 		    :hairline="false"
-			v-if="line"
+				v-if="line"
 		></u-line>
 		<!-- 加载中和没有更多的状态才显示两边的横线 -->
 		<view
@@ -43,8 +43,8 @@
 		<u-line
 		    length="140rpx"
 		    color="#E6E8EB"
-			:hairline="false"
-			v-if="line"
+				:hairline="false"
+				v-if="line"
 		></u-line>
 	</view>
 </template>

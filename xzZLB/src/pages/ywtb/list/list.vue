@@ -3,9 +3,9 @@
 		<Zlist :list="list" @moveList="moveList">
 			<template v-slot:btn="btn">
 				<view class="lists-item-but" >
-					<u-button class="btn" type="primary" shape="circle" :plain="true" @click.native.stop="movePetition(btn.id)">申请通知书</u-button>
+					<u-button class="btn" type="primary" shape="circle" :plain="true"  @click.native.stop="movePetition(btn.id)">申请通知书</u-button>
 					<u-button class="btn" type="primary" shape="circle" :plain="true" @click.native.stop="movePetition(btn.id)">申请调查令</u-button>
-					<u-button class="btn" type="primary" shape="circle" :plain="true"  @click.native.stop="moveAffair(btn.id)">事项选择</u-button>
+					<u-button class="btn" type="primary" shape="circle"  :plain="true" @click.native.stop="moveAffair(btn.id)">事项选择</u-button>
 				</view>
 			</template>
 		</Zlist>
@@ -63,7 +63,7 @@
 		display: flex;
 		justify-content: space-between;
 		.btn{
-			width: 32%;
+			width: 30%;
 			white-space: nowrap;
 		}
 	}

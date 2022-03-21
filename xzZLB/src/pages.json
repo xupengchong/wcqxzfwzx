@@ -221,6 +221,42 @@
             }
             
         }
+        ,{
+            "path" : "pages/kssq/aaum/aaum",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "工商信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/kssq/birth/birth",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "出生信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/kssq/koseki/koseki",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "户籍信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/kssq/kinsfolk/kinsfolk",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "亲属关系",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

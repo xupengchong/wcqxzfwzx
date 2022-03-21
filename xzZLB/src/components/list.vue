@@ -3,13 +3,12 @@
 		<!-- 搜索 -->
 		<view class="top-search u-flex u-col-center u-border-top u-border-bottom">
 			<view class="top-search-left u-flex u-flex-1">
-				<u-image src="@/static/icon/top-search.png" width="35rpx" height="35rpx"></u-image>
 				<u-input v-model="searchValue" type="text" class="u-flex-1 u-m-l-20"></u-input>
 			</view>
 			<view class="top-search-right">
-				<view class="top-search-right-btn u-flex u-row-center u-col-center" @click="handleSearch">
-					<u-image src="@/static/icon/filter.png" width="28rpx" height="28rpx" class="img"></u-image>
-					<text>筛选</text>
+				<view v-waterWave class=" top-search-right-btn u-flex u-row-center u-col-center" @click="handleSearch">
+					
+				<u-button type="primary" icon="search" class="customStyle" shape="circle">筛选</u-button>
 				</view>
 			</view>
 		</view>
@@ -51,12 +50,16 @@
 		data() {
 			return {
 				noPermission: false,
-				status: 'nomore'
+				status: 'nomore',
+				
 			}
 		},
 		methods:{
 			moveList(v){
 				this.$emit('moveList',v)
+			},
+			handleSearch(){
+				
 			}
 		}
 	}
@@ -96,25 +99,19 @@
 	      display: flex;
 	      justify-content: center;
 	      align-items: center;
-				width: 136rpx;
-				height: 68rpx;
 				border-radius: 68rpx;
 				background-color: #327BF0;
 				color: #fff;
 				font-size: 28rpx;
-				transition: all 0.5s;
 				.img {
 					margin-right: 10rpx;
-				}
-				&:active {
-					opacity: 0.3;
 				}
 			}
 		}
 	}
 	// 列表
 	&-D{
-		padding-top: 73px;
+		padding-top: 90px;
 		padding-bottom: 10px;
 	}
 	&-item{
@@ -146,5 +143,9 @@
 		}
 	}
 	
+}
+.customStyle{
+	height: 64rpx;
+	width: 170rpx;
 }
 </style>

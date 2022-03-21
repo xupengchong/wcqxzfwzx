@@ -158,6 +158,7 @@ export default {
 	page{
 		background-color: #f6f7f8;
     /* padding: 16px 0; */
+		height: 100%;
 	}
 	.amap-logo,.amap-copyright{
 		display: none !important;
@@ -182,7 +183,8 @@ export default {
 	    transition-property:transform, opacity, -webkit-transform;
 	    -webkit-transform:scale(0);
 	    transform:scale(0);
-	    pointer-events:none
+	    pointer-events:none;
+			z-index:10000
 	}
 	.v--ts-btn{
 	    width: 200px;

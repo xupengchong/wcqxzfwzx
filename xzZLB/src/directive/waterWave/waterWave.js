@@ -8,7 +8,7 @@ export default {
   inserted(el, binding, vnode) {
           var duration = 750;
 					
-		
+
           // 样式string拼凑
           var forStyle = function(position){
             var cssStr = '';
@@ -86,7 +86,7 @@ export default {
 							el.className += ' v--waves'
 						}
             show(e);
-          },!1);
+          },true);
 
   }
 }
