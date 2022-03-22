@@ -14,7 +14,7 @@
 		</template>
     </view>
     <div class="footer">本服务由政府服务网、金华市婺城区行政服务中心提供</div>
-    <!-- <div class="lowV" @click="isLow">{{ lowTitle }}</div> -->
+    <div class="lowV" @click="isLow">{{ lowTitle }}</div>
   </view>
 </template>
 
