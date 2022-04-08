@@ -1,6 +1,7 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
-    <scroll-pane ref="scrollPane" class="tags-view-wrapper" @scroll="handleScroll">
+    <!-- <scroll-pane ref="scrollPane" class="tags-view-wrapper" @scroll="handleScroll"> -->
+    <div class="tags-view-wrapper">
       <router-link
         v-for="tag in visitedViews"
         ref="tag"
@@ -13,27 +14,29 @@
         @click.middle.native="!isAffix(tag)?closeSelectedTag(tag):''"
         @contextmenu.prevent.native="openMenu(tag,$event)"
       >
-        {{ tag.title }}
+        <p class="title">{{ tag.title }}</p>
         <span v-if="!isAffix(tag)" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
       </router-link>
-    </scroll-pane>
+    </div>
+    <!-- </scroll-pane> -->
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
-      <li @click="refreshSelectedTag(selectedTag)"><i class="el-icon-refresh-right"></i> 刷新页面</li>
-      <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)"><i class="el-icon-close"></i> 关闭当前</li>
-      <li @click="closeOthersTags"><i class="el-icon-circle-close"></i> 关闭其他</li>
-      <li v-if="!isFirstView()" @click="closeLeftTags"><i class="el-icon-back"></i> 关闭左侧</li>
-      <li v-if="!isLastView()" @click="closeRightTags"><i class="el-icon-right"></i> 关闭右侧</li>
-      <li @click="closeAllTags(selectedTag)"><i class="el-icon-circle-close"></i> 全部关闭</li>
+      <li @click="refreshSelectedTag(selectedTag)"><i class="el-icon-refresh-right" /> 刷新页面</li>
+      <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)"><i class="el-icon-close" /> 关闭当前</li>
+      <li @click="closeOthersTags"><i class="el-icon-circle-close" /> 关闭其他</li>
+      <li v-if="!isFirstView()" @click="closeLeftTags"><i class="el-icon-back" /> 关闭左侧</li>
+      <li v-if="!isLastView()" @click="closeRightTags"><i class="el-icon-right" /> 关闭右侧</li>
+      <li @click="closeAllTags(selectedTag)"><i class="el-icon-circle-close" /> 全部关闭</li>
     </ul>
   </div>
 </template>
 
 <script>
 import path from 'path'
-import ScrollPane from './ScrollPane'
+// import ScrollPane from './ScrollPane'
 
 export default {
-  components: { ScrollPane },
+  name: 'TagsView',
+  // components: { ScrollPane },
   data() {
     return {
       visible: false,
@@ -51,7 +54,7 @@ export default {
       return this.$store.state.permission.routes
     },
     theme() {
-      return this.$store.state.settings.theme;
+      return this.$store.state.settings.theme
     }
   },
   watch: {
@@ -76,11 +79,11 @@ export default {
       return route.path === this.$route.path
     },
     activeStyle(tag) {
-      if (!this.isActive(tag)) return {};
-      return {
-        "background-color": this.theme,
-        "border-color": this.theme
-      };
+      if (!this.isActive(tag)) return {}
+      // return {
+      //   "background-color": this.theme,
+      //   "border-color": this.theme
+      // };
     },
     isAffix(tag) {
       return tag.meta && tag.meta.affix
@@ -141,7 +144,7 @@ export default {
       this.$nextTick(() => {
         for (const tag of tags) {
           if (tag.to.path === this.$route.path) {
-            this.$refs.scrollPane.moveToTarget(tag)
+            // this.$refs.scrollPane.moveToTarget(tag)
             // when query is different then update
             if (tag.to.fullPath !== this.$route.fullPath) {
               this.$store.dispatch('tagsView/updateVisitedView', this.$route)
@@ -183,7 +186,7 @@ export default {
       })
     },
     closeOthersTags() {
-      this.$router.push(this.selectedTag).catch(()=>{});
+      this.$router.push(this.selectedTag).catch(() => {})
       this.$store.dispatch('tagsView/delOthersViews', this.selectedTag).then(() => {
         this.moveToCurrentTag()
       })
@@ -240,12 +243,13 @@ export default {
 
 <style lang="scss" scoped>
 .tags-view-container {
-  padding: 10px 0;
-  height: 54px;
-  width: 100%;
+  padding: 6px 0;
+  height: 50px;
+  width: calc(100% - 300px);
+
   background: #fff;
-  border-bottom: 1px solid #d8dce5;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 0 3px 0 rgba(0, 0, 0, .04);
+  // border-bottom: 1px solid #d8dce5;
+  // box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 0 3px 0 rgba(0, 0, 0, .04);
   .tags-view-wrapper {
     .tags-view-item {
       display: inline-block;
@@ -253,13 +257,18 @@ export default {
       cursor: pointer;
       height: 30px;
       line-height: 26px;
-      border: 1px solid #d8dce5;
+      border-right: 1px solid #d8dce5;
       color: #495060;
       background: #fff;
       padding: 2px 8px;
       font-size: 12px;
       margin-left: 5px;
       margin-top: 4px;
+      p{
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+      }
       &:first-of-type {
         margin-left: 15px;
       }
@@ -267,19 +276,23 @@ export default {
         margin-right: 15px;
       }
       &.active {
-        background-color: #42b983;
-        color: #fff;
-        border-color: #42b983;
-        &::before {
-          content: '';
-          background: #fff;
-          display: inline-block;
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          position: relative;
-          margin-right: 2px;
+        // background-color: #42b983;
+        color: rgb(0, 0, 0);
+        // border-color: #42b983;
+        p{
+
+          border-bottom: 2px  solid #355ccc;
         }
+        // &::before {
+        //   content: '';
+        //   background: rgb(179, 179, 179);
+        //   display: inline-block;
+        //   width: 10px;
+        //   height: 10px;
+        //   border-radius: 50%;
+        //   position: relative;
+        //   margin-right: 2px;
+        // }
       }
     }
   }
@@ -311,7 +324,7 @@ export default {
 //reset element css of el-icon-close
 .tags-view-wrapper {
   .tags-view-item {
-    font-size: 16px !important;
+    // font-size: 16px !important;
 
     .el-icon-close {
       width: 18px;
@@ -334,4 +347,5 @@ export default {
     }
   }
 }
+
 </style>

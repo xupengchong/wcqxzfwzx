@@ -61,10 +61,13 @@ export default {
 
 <style lang="scss" scoped>
 .app-breadcrumb.el-breadcrumb {
-  display: inline-block;
-  font-size: 16px;
-  line-height: 50px;
-  margin-left: 8px;
+    font-size: 14px;
+    line-height: 50px;
+    // margin-left: 8px;
+    display: flex;
+    width: 290px;
+    justify-content: flex-end;
+    margin-right: 10px;
 
   .no-redirect {
     color: #97a8be;

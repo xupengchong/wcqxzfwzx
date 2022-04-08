@@ -5,7 +5,11 @@
     <div :class="{hasTagsView:needTagsView}" class="main-container">
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
-        <tags-view v-if="needTagsView" />
+        <!-- <tags-view v-if="needTagsView" /> -->
+        <div class="navbars">
+          <TagsView class="breadcrumb-container" />
+          <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
+        </div>
       </div>
       <app-main />
       <right-panel>
@@ -21,7 +25,7 @@ import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 import variables from '@/assets/styles/variables.scss'
-
+import Breadcrumb from '@/components/Breadcrumb'
 export default {
   name: 'Layout',
   components: {
@@ -30,7 +34,8 @@ export default {
     RightPanel,
     Settings,
     Sidebar,
-    TagsView
+    TagsView,
+    Breadcrumb
   },
   mixins: [ResizeMixin],
   computed: {
@@ -103,5 +108,15 @@ export default {
 
 .mobile .fixed-header {
   width: 100%;
+}
+.breadcrumb-container{
+  float: left;
+  border-right: 1px solid #eceef1;
+}
+.navbars{
+  white-space: nowrap;
+  overflow: hidden;
+   border-bottom: 1px solid #d8dce5;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 0 3px 0 rgba(0, 0, 0, .04);
 }
 </style>

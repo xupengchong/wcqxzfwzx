@@ -187,7 +187,14 @@ export const constantRoutes = [
         meta: {title: '流程详情', activeMenu: '/bpm/task/my'}
       }
     ]
-  }
+  },
+  // {
+  //   path: '/page2/visual',
+  //   component: (resolve) => require(['visual/views/index'], resolve),
+  //   name: '可视化大屏',
+  //   meta: {title: '可视化大屏', activeMenu: '/page2/visual'}
+  // },
+
 ]
 
 export default new Router({

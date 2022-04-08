@@ -3,7 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">婺服查</h3>
       <el-form-item prop="tenantName">
-        <el-input v-model="loginForm.tenantName" type="text" auto-complete="off" placeholder='租户'>
+        <el-input v-model="loginForm.tenantName" type="text" auto-complete="off" placeholder="租户">
           <svg-icon slot="prefix" icon-class="tree" class="el-input__icon input-icon" />
         </el-input>
       </el-form-item>
@@ -17,12 +17,12 @@
           <svg-icon slot="prefix" icon-class="password" class="el-input__icon input-icon" />
         </el-input>
       </el-form-item>
-      <el-form-item prop="code" v-if="captchaEnable">
+      <el-form-item v-if="captchaEnable" prop="code">
         <el-input v-model="loginForm.code" auto-complete="off" placeholder="验证码" style="width: 63%" @keyup.enter.native="handleLogin">
           <svg-icon slot="prefix" icon-class="validCode" class="el-input__icon input-icon" />
         </el-input>
         <div class="login-code">
-          <img :src="codeUrl" @click="getCode" class="login-code-img"/>
+          <img :src="codeUrl" class="login-code-img" @click="getCode">
         </div>
       </el-form-item>
       <el-checkbox v-model="loginForm.rememberMe" style="margin:0px 0px 25px 0px;">记住密码</el-checkbox>
@@ -50,59 +50,59 @@
 </template>
 
 <script>
-import { getCodeImg, socialAuthRedirect } from "@/api/login";
-import { getTenantIdByName } from "@/api/system/tenant";
-import { SystemUserSocialTypeEnum } from "@/utils/constants";
-import { decrypt, encrypt } from '@/utils/jsencrypt';
-import Cookies from "js-cookie";
+import { getCodeImg, socialAuthRedirect } from '@/api/login'
+import { getTenantIdByName } from '@/api/system/tenant'
+import { SystemUserSocialTypeEnum } from '@/utils/constants'
+import { decrypt, encrypt } from '@/utils/jsencrypt'
+import Cookies from 'js-cookie'
 
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
-      codeUrl: "",
+      codeUrl: '',
       captchaEnable: true,
       loginForm: {
-        username: "admin",
-        password: "123456",
+        username: 'admin',
+        password: '123456',
         rememberMe: false,
-        code: "",
-        uuid: "",
-        tenantName: "芋道源码",
+        code: '',
+        uuid: '',
+        tenantName: '芋道源码'
       },
       loginRules: {
         tenantName: [
-          { required: true, trigger: "blur", message: "租户不能为空" },
+          { required: true, trigger: 'blur', message: '租户不能为空' },
           {
             validator: (rule, value, callback) => {
               // debugger
               getTenantIdByName(value).then(res => {
-                const tenantId = res.data;
+                const tenantId = res.data
                 if (tenantId >= 0) {
                   // 设置租户
-                  Cookies.set("tenantId", tenantId);
-                  callback();
+                  Cookies.set('tenantId', tenantId)
+                  callback()
                 } else {
-                  callback('租户不存在');
+                  callback('租户不存在')
                 }
-              });
+              })
             },
             trigger: 'blur'
           }
         ],
         username: [
-          { required: true, trigger: "blur", message: "用户名不能为空" }
+          { required: true, trigger: 'blur', message: '用户名不能为空' }
         ],
         password: [
-          { required: true, trigger: "blur", message: "密码不能为空" }
+          { required: true, trigger: 'blur', message: '密码不能为空' }
         ],
-        code: [{ required: true, trigger: "change", message: "验证码不能为空" }]
+        code: [{ required: true, trigger: 'change', message: '验证码不能为空' }]
       },
       loading: false,
       redirect: undefined,
       // 枚举
-      SysUserSocialTypeEnum: SystemUserSocialTypeEnum,
-    };
+      SysUserSocialTypeEnum: SystemUserSocialTypeEnum
+    }
   },
   // watch: {
   //   $route: {
@@ -114,80 +114,81 @@ export default {
   // },
   created() {
     // 重定向地址
-    this.redirect = this.$route.query.redirect;
-    this.getCode();
-    this.getCookie();
+    this.redirect = this.$route.query.redirect
+
+    this.getCode()
+    this.getCookie()
   },
   methods: {
     getCode() {
       // 只有开启的状态，才加载验证码。默认开启
       if (!this.captchaEnable) {
-        return;
+        return
       }
       // 请求远程，获得验证码
       getCodeImg().then(res => {
-        res = res.data;
-        this.captchaEnable = res.enable;
+        res = res.data
+        this.captchaEnable = res.enable
         if (this.captchaEnable) {
-          this.codeUrl = "data:image/gif;base64," + res.img;
-          this.loginForm.uuid = res.uuid;
+          this.codeUrl = 'data:image/gif;base64,' + res.img
+          this.loginForm.uuid = res.uuid
         }
-      });
+      })
     },
     getCookie() {
-      const username = Cookies.get("username");
-      const password = Cookies.get("password");
+      const username = Cookies.get('username')
+      const password = Cookies.get('password')
       const rememberMe = Cookies.get('rememberMe')
-      const tenantName = Cookies.get('tenantName');
+      const tenantName = Cookies.get('tenantName')
       this.loginForm = {
         username: username === undefined ? this.loginForm.username : username,
         password: password === undefined ? this.loginForm.password : decrypt(password),
         rememberMe: rememberMe === undefined ? false : Boolean(rememberMe),
-        tenantName: tenantName === undefined ? this.loginForm.tenantName : tenantName,
-      };
+        tenantName: tenantName === undefined ? this.loginForm.tenantName : tenantName
+      }
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true;
+          this.loading = true
           // 设置 Cookie
           if (this.loginForm.rememberMe) {
-            Cookies.set("username", this.loginForm.username, { expires: 30 });
-            Cookies.set("password", encrypt(this.loginForm.password), { expires: 30 });
-            Cookies.set('rememberMe', this.loginForm.rememberMe, { expires: 30 });
-            Cookies.set('tenantName', this.loginForm.tenantName, { expires: 30 });
+            Cookies.set('username', this.loginForm.username, { expires: 30 })
+            Cookies.set('password', encrypt(this.loginForm.password), { expires: 30 })
+            Cookies.set('rememberMe', this.loginForm.rememberMe, { expires: 30 })
+            Cookies.set('tenantName', this.loginForm.tenantName, { expires: 30 })
           } else {
-            Cookies.remove("username");
-            Cookies.remove("password");
-            Cookies.remove('rememberMe');
-            Cookies.remove('tenantName');
+            Cookies.remove('username')
+            Cookies.remove('password')
+            Cookies.remove('rememberMe')
+            Cookies.remove('tenantName')
           }
           // 发起登陆
-          this.$store.dispatch("Login", this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || "/" }).catch(()=>{});
+          this.$store.dispatch('Login', this.loginForm).then(() => {
+            this.$router.push({ path: this.redirect || '/' }).catch(() => {})
           }).catch(() => {
-            this.loading = false;
-            this.getCode();
-          });
+            this.loading = false
+            this.getCode()
+          })
         }
-      });
+      })
     },
     doSocialLogin(socialTypeEnum) {
       // console.log("开始Oauth登录...%o", socialTypeEnum.code);
       // 设置登录中
-      this.loading = true;
+      this.loading = true
       // 计算 redirectUri
-      const redirectUri = location.origin + '/social-login?type=' + socialTypeEnum.type + '&redirect=' + (this.redirect || "/"); // 重定向不能丢
+      const redirectUri = location.origin + '/social-login?type=' + socialTypeEnum.type + '&redirect=' + (this.redirect || '/') // 重定向不能丢
       // const redirectUri = 'http://127.0.0.1:48080/api/gitee/callback';
       // const redirectUri = 'http://127.0.0.1:48080/api/dingtalk/callback';
       // 进行跳转
       socialAuthRedirect(socialTypeEnum.type, encodeURIComponent(redirectUri)).then((res) => {
         // console.log(res.url);
-        window.location.href = res.data;
-      });
+        window.location.href = res.data
+      })
     }
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

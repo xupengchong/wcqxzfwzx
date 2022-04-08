@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="handleScroll">
+  <el-scrollbar ref="scrollContainer" :vertical="true" class="scroll-container" @wheel.native.prevent="handleScroll">
     <slot />
   </el-scrollbar>
 </template>
@@ -87,7 +87,7 @@ export default {
       bottom: 0px;
     }
     .el-scrollbar__wrap {
-      height: 49px;
+      // height: 49px;
     }
   }
 }
