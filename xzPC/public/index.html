@@ -8,6 +8,16 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= webpackConfig.name %></title>
     <!--[if lt IE 11]><script>window.location.href='html/ie.html';</script><![endif]-->
+    <script>
+        //  window._AMapSecurityConfig = {
+        //     serviceHost:'http://192.168.5.165/_AMapService',
+        //     // 例如 ：serviceHost:'http://1.1.1.1:80/_AMapService',
+        // }
+        window._AMapSecurityConfig = {
+          securityJsCode: '334261c1705f8f5aca33ef6132d01872'
+        }
+
+    </script>
     <style>
     html,
     body,

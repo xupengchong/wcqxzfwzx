@@ -3,19 +3,25 @@ import Vue from 'vue'
 import Cookies from 'js-cookie'
 
 import Element from 'element-ui'
-import './assets/styles/element-variables.scss'
-
+import '../assets/styles/element-variables.scss'
+import scroll from 'vue-seamless-scroll' // 自动滚动
+Vue.use(scroll)
+import * as echarts from 'echarts'
+import 'echarts-gl' // 3d图表库
+Vue.prototype.$echarts = echarts
 import '@/assets/styles/index.scss' // global css
 import '@/assets/styles/ruoyi.scss' // ruoyi css
-import App from './App'
-import store from './store'
-import router from './router'
-import directive from './directive' // directive
-import plugins from './plugins' // plugins
+import App from '../App'
+import store from '../store'
+import router from '../router'
+import directive from '../directive' // directive
+import plugins from '../plugins' // plugins
+import '../utils/font.js'
+import '../assets/icons' // icon
+import '../permission' // permission control
 
-import './assets/icons' // icon
-import './permission' // permission control
-
+import { parseTime} from "@/utils/ruoyi";
+Vue.prototype.parseTime = parseTime
 
 
 // 头部标签插件

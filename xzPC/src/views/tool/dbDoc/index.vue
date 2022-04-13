@@ -15,54 +15,54 @@
   </div>
 </template>
 <script>
-import { exportHtml, exportWord, exportMarkdown} from "@/api/tool/dbDoc";
-import iFrame from "@/components/iFrame/index";
+import { exportHtml, exportWord, exportMarkdown } from '@/api/tool/dbDoc'
+import iFrame from '@/components/iFrame/index'
 
 export default {
-  name: "DBDoc",
+  name: 'DBDoc',
   components: { iFrame },
   data() {
     return {
-      height: document.documentElement.clientHeight - 94.5 + "px;",
+      height: document.documentElement.clientHeight - 94.5 + 'px;',
       loading: true,
-      src: undefined,
-    };
+      src: undefined
+    }
   },
   mounted: function() {
     setTimeout(() => {
-      this.loading = false;
-    }, 230);
-    const that = this;
+      this.loading = false
+    }, 230)
+    const that = this
     window.onresize = function temp() {
-      that.height = document.documentElement.clientHeight - 94.5 + "px;";
-    };
+      that.height = document.documentElement.clientHeight - 94.5 + 'px;'
+    }
   },
   created() {
     // 加载 Html，进行预览
     exportHtml().then(response => {
-      let blob = new Blob([response], {type : 'text/html'});
-      this.src = window.URL.createObjectURL(blob);
+      const blob = new Blob([response], { type: 'text/html' })
+      this.src = window.URL.createObjectURL(blob)
     })
   },
   methods: {
     /** 处理导出 HTML */
     handleExportHtml() {
       exportHtml().then(response => {
-        this.$download.html(response, '数据库文档.html');
+        this.$download.html(response, '数据库文档.html')
       })
     },
     /** 处理导出 Word */
     handleExportWord() {
       exportWord().then(response => {
-        this.$download.word(response, '数据库文档.doc');
+        this.$download.word(response, '数据库文档.doc')
       })
     },
     /** 处理导出 Markdown */
     handleExportMarkdown() {
       exportMarkdown().then(response => {
-        this.$download.markdown(response, '数据库文档.md');
+        this.$download.markdown(response, '数据库文档.md')
       })
     }
   }
-};
+}
 </script>

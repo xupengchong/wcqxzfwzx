@@ -188,18 +188,27 @@ export const constantRoutes = [
       }
     ]
   },
-  // {
-  //   path: '/page2/visual',
-  //   component: (resolve) => require(['visual/views/index'], resolve),
-  //   name: '可视化大屏',
-  //   meta: {title: '可视化大屏', activeMenu: '/page2/visual'}
-  // },
+  {
+    path: '/visual/index',
+    component: (resolve) => require(['visual/views/index'], resolve),
+    name: '可视化平台',
+    hidden: true,
+    meta: {title: '可视化平台', activeMenu: '/visual/index'}
+  },
 
 ]
 
-export default new Router({
+const router =  new Router({
   base: process.env.VUE_APP_APP_NAME ? process.env.VUE_APP_APP_NAME : "/",
   mode: 'history', // 去掉url中的#
   scrollBehavior: () => ({y: 0}),
   routes: constantRoutes
 })
+
+
+router.beforeEach((to, from, next) => {
+  console.log('loy',to,from)
+  next()
+})
+
+export default router

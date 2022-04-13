@@ -434,8 +434,10 @@
             <el-color-picker v-model="activeData['inactive-color']" />
           </el-form-item>
 
-          <el-form-item v-if="activeData.__config__.showLabel !== undefined
-            && activeData.__config__.labelWidth !== undefined" label="显示标签"
+          <el-form-item
+            v-if="activeData.__config__.showLabel !== undefined
+              && activeData.__config__.labelWidth !== undefined"
+            label="显示标签"
           >
             <el-switch v-model="activeData.__config__.showLabel" />
           </el-form-item>
@@ -776,14 +778,14 @@ export default {
   computed: {
     documentLink() {
       return (
-        this.activeData.__config__.document
-        || 'https://element.eleme.cn/#/zh-CN/component/installation'
+        this.activeData.__config__.document ||
+        'https://element.eleme.cn/#/zh-CN/component/installation'
       )
     },
     dateOptions() {
       if (
-        this.activeData.type !== undefined
-        && this.activeData.__config__.tag === 'el-date-picker'
+        this.activeData.type !== undefined &&
+        this.activeData.__config__.tag === 'el-date-picker'
       ) {
         if (this.activeData['start-placeholder'] === undefined) {
           return this.dateTypeOptions
@@ -845,16 +847,16 @@ export default {
     },
     renderContent(h, { node, data, store }) {
       return (
-        <div class="custom-tree-node">
+        <div class='custom-tree-node'>
           <span>{node.label}</span>
-          <span class="node-operation">
+          <span class='node-operation'>
             <i on-click={() => this.append(data)}
-              class="el-icon-plus"
-              title="添加"
+              class='el-icon-plus'
+              title='添加'
             ></i>
             <i on-click={() => this.remove(node, data)}
-              class="el-icon-delete"
-              title="删除"
+              class='el-icon-delete'
+              title='删除'
             ></i>
           </span>
         </div>

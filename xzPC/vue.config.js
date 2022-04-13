@@ -55,6 +55,44 @@ module.exports = {
       }
     }
   },
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      template: 'public/index.html',
+      fileName: 'index.html',
+      chunks: ['chunk-vendors', 'chunk-common', 'index']
+    },
+    // case: {
+    //   entry: 'src/pages/case/main.js',
+    //   template: 'public/index.html',
+    //   fileName: 'case.html',
+    //   chunks: ['chunk-vendors', 'chunk-common', 'case']
+    // },
+    visual: {
+      entry: 'src/visual/main.js',
+      template: 'public/index.html',
+      fileName: 'visual.html',
+      chunks: ['chunk-vendors', 'chunk-common', 'visual']
+    },
+    // supervise: {
+    //   entry: 'src/pages/supervise/main.js',
+    //   template: 'public/index.html',
+    //   fileName: 'supervise.html',
+    //   chunks: ['chunk-vendors', 'chunk-common', 'supervise']
+    // },
+    // application: {
+    //   entry: 'src/pages/application/main.js',
+    //   template: 'public/index.html',
+    //   fileName: 'application.html',
+    //   chunks: ['chunk-vendors', 'chunk-common', 'application']
+    // },
+    // manage: {
+    //   entry: 'src/pages/manage/main.js',
+    //   template: 'public/index.html',
+    //   fileName: 'manage.html',
+    //   chunks: ['chunk-vendors', 'chunk-common', 'manage']
+    // }
+  },
   configureWebpack: {
     name: name,
     resolve: {

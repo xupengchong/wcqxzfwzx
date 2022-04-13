@@ -14,7 +14,7 @@
           />
           <el-table-column label="字段描述" min-width="10%">
             <template slot-scope="scope">
-              <el-input v-model="scope.row.columnComment"></el-input>
+              <el-input v-model="scope.row.columnComment" />
             </template>
           </el-table-column>
           <el-table-column
@@ -38,27 +38,27 @@
           </el-table-column>
           <el-table-column label="java属性" min-width="10%">
             <template slot-scope="scope">
-              <el-input v-model="scope.row.javaField"></el-input>
+              <el-input v-model="scope.row.javaField" />
             </template>
           </el-table-column>
           <el-table-column label="插入" min-width="4%">
             <template slot-scope="scope">
-              <el-checkbox true-label="true" false-label="false" v-model="scope.row.createOperation"></el-checkbox>
+              <el-checkbox v-model="scope.row.createOperation" true-label="true" false-label="false" />
             </template>
           </el-table-column>
           <el-table-column label="编辑" min-width="4%">
             <template slot-scope="scope">
-              <el-checkbox true-label="true" false-label="false" v-model="scope.row.updateOperation"></el-checkbox>
+              <el-checkbox v-model="scope.row.updateOperation" true-label="true" false-label="false" />
             </template>
           </el-table-column>
           <el-table-column label="列表" min-width="4%">
             <template slot-scope="scope">
-              <el-checkbox true-label="true" false-label="false" v-model="scope.row.listOperationResult"></el-checkbox>
+              <el-checkbox v-model="scope.row.listOperationResult" true-label="true" false-label="false" />
             </template>
           </el-table-column>
           <el-table-column label="查询" min-width="4%">
             <template slot-scope="scope">
-              <el-checkbox true-label="true" false-label="false" v-model="scope.row.listOperation"></el-checkbox>
+              <el-checkbox v-model="scope.row.listOperation" true-label="true" false-label="false" />
             </template>
           </el-table-column>
           <el-table-column label="查询方式" min-width="10%">
@@ -77,7 +77,7 @@
           </el-table-column>
           <el-table-column label="允许空" min-width="5%">
             <template slot-scope="scope">
-              <el-checkbox true-label="true" false-label="false" v-model="scope.row.nullable"></el-checkbox>
+              <el-checkbox v-model="scope.row.nullable" true-label="true" false-label="false" />
             </template>
           </el-table-column>
           <el-table-column label="显示类型" min-width="12%">
@@ -99,23 +99,23 @@
             <template slot-scope="scope">
               <el-select v-model="scope.row.dictType" clearable filterable placeholder="请选择">
                 <el-option
-                    v-for="dict in dictOptions"
-                    :key="dict.id"
-                    :label="dict.name"
-                    :value="dict.type"
+                  v-for="dict in dictOptions"
+                  :key="dict.id"
+                  :label="dict.name"
+                  :value="dict.type"
                 />
               </el-select>
             </template>
           </el-table-column>
           <el-table-column label="示例" min-width="10%">
             <template slot-scope="scope">
-              <el-input v-model="scope.row.example"></el-input>
+              <el-input v-model="scope.row.example" />
             </template>
           </el-table-column>
         </el-table>
       </el-tab-pane>
       <el-tab-pane label="生成信息" name="genInfo">
-        <gen-info-form ref="genInfo" :info="table" :tables="tables" :menus="menus"/>
+        <gen-info-form ref="genInfo" :info="table" :tables="tables" :menus="menus" />
       </el-tab-pane>
     </el-tabs>
     <el-form label-width="100px">
@@ -127,15 +127,15 @@
   </el-card>
 </template>
 <script>
-import { getCodegenDetail, updateCodegen } from "@/api/tool/codegen";
-import { listAllSimple as listAllSimpleDictType } from "@/api/system/dict/type";
-import { listSimpleMenus } from "@/api/system/menu";
-import basicInfoForm from "./basicInfoForm";
-import genInfoForm from "./genInfoForm";
-import Sortable from 'sortablejs'
+import { getCodegenDetail, updateCodegen } from '@/api/tool/codegen'
+import { listAllSimple as listAllSimpleDictType } from '@/api/system/dict/type'
+import { listSimpleMenus } from '@/api/system/menu'
+import basicInfoForm from './basicInfoForm'
+import genInfoForm from './genInfoForm'
+// import Sortable from 'sortablejs'
 
 export default {
-  name: "GenEdit",
+  name: 'GenEdit',
   components: {
     basicInfoForm,
     genInfoForm
@@ -143,9 +143,9 @@ export default {
   data() {
     return {
       // 选中选项卡的 name
-      activeName: "cloum",
+      activeName: 'cloum',
       // 表格的高度
-      tableHeight: document.documentElement.scrollHeight - 245 + "px",
+      tableHeight: document.documentElement.scrollHeight - 245 + 'px',
       // 表信息
       tables: [],
       // 表列信息
@@ -156,80 +156,80 @@ export default {
       menus: [],
       // 表详细信息
       table: {}
-    };
+    }
   },
   created() {
-    const tableId = this.$route.params && this.$route.params.tableId;
+    const tableId = this.$route.params && this.$route.params.tableId
     if (tableId) {
       // 获取表详细信息
       getCodegenDetail(tableId).then(res => {
-        this.table = res.data.table;
-        this.columns = res.data.columns;
-      });
+        this.table = res.data.table
+        this.columns = res.data.columns
+      })
       /** 查询字典下拉列表 */
       listAllSimpleDictType().then(response => {
-        this.dictOptions = response.data;
-      });
+        this.dictOptions = response.data
+      })
       /** 查询菜单下拉列表 */
       listSimpleMenus().then(response => {
-        this.menus = [];
-        this.menus.push(...this.handleTree(response.data, "id"));
-      });
+        this.menus = []
+        this.menus.push(...this.handleTree(response.data, 'id'))
+      })
     }
+  },
+  mounted() {
+    // const el = this.$refs.dragTable.$el.querySelectorAll('.el-table__body-wrapper > table > tbody')[0]
+    // const sortable = Sortable.create(el, {
+    //   handle: '.allowDrag',
+    //   onEnd: evt => {
+    //     const targetRow = this.columns.splice(evt.oldIndex, 1)[0]
+    //     this.columns.splice(evt.newIndex, 0, targetRow)
+    //     for (const index in this.columns) {
+    //       this.columns[index].sort = parseInt(index) + 1
+    //     }
+    //   }
+    // })
   },
   methods: {
     /** 提交按钮 */
     submitForm() {
-      const basicForm = this.$refs.basicInfo.$refs.basicInfoForm;
-      const genForm = this.$refs.genInfo.$refs.genInfoForm;
+      const basicForm = this.$refs.basicInfo.$refs.basicInfoForm
+      const genForm = this.$refs.genInfo.$refs.genInfoForm
       Promise.all([basicForm, genForm].map(this.getFormPromise)).then(res => {
-        const validateResult = res.every(item => !!item);
+        const validateResult = res.every(item => !!item)
         if (validateResult) {
-          const genTable = {};
-          genTable.table = Object.assign({}, basicForm.model, genForm.model);
-          genTable.columns = this.columns;
+          const genTable = {}
+          genTable.table = Object.assign({}, basicForm.model, genForm.model)
+          genTable.columns = this.columns
           genTable.params = {
             treeCode: genTable.treeCode,
             treeName: genTable.treeName,
             treeParentCode: genTable.treeParentCode,
             parentMenuId: genTable.parentMenuId
-          };
+          }
           updateCodegen(genTable).then(res => {
-            this.$modal.msgSuccess("修改成功！");
-            this.close();
-          });
+            this.$modal.msgSuccess('修改成功！')
+            this.close()
+          })
         } else {
-          this.$modal.msgError("表单校验未通过，请重新检查提交内容");
+          this.$modal.msgError('表单校验未通过，请重新检查提交内容')
         }
-      });
+      })
     },
     getFormPromise(form) {
       return new Promise(resolve => {
         form.validate(res => {
-          resolve(res);
-        });
-      });
+          resolve(res)
+        })
+      })
     },
     /** 关闭按钮 */
     close() {
       this.$tab.closeOpenPage({
-        path: "/tool/codegen",
-        query: { t: Date.now(), pageNum: this.$route.query.pageNum } }
-      );
+        path: '/tool/codegen',
+        query: { t: Date.now(), pageNum: this.$route.query.pageNum }}
+      )
     }
-  },
-  mounted() {
-    const el = this.$refs.dragTable.$el.querySelectorAll(".el-table__body-wrapper > table > tbody")[0];
-    const sortable = Sortable.create(el, {
-      handle: ".allowDrag",
-      onEnd: evt => {
-        const targetRow = this.columns.splice(evt.oldIndex, 1)[0];
-        this.columns.splice(evt.newIndex, 0, targetRow);
-        for (let index in this.columns) {
-          this.columns[index].sort = parseInt(index) + 1;
-        }
-      }
-    });
   }
-};
+}
 </script>

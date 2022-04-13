@@ -1,3 +1,4 @@
+ /* eslint-disable */
 <template>
   <div class="panel-tab__content">
     <el-table :data="elementListenersList" size="mini" border>

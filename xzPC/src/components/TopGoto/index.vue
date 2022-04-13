@@ -1,29 +1,35 @@
 <template>
-<div class="main">
-<div class="goto">
-  <div class="goto-item" v-for="(item, index) in gotoData" :key="index">
-    <svg-icon :icon-class="item.icon" class="icon"></svg-icon>
-    <p>{{item.name}}</p>
-  </div>
-</div>
+  <div class="main">
+    <div class="goto">
+      <div v-for="(item, index) in gotoData" :key="index" class="goto-item">
+        <a :href="item.url">
+          <svg-icon :icon-class="item.icon" class="icon" />
+          <p>{{ item.name }}</p>
+        </a>
 
-</div>
+      </div>
+    </div>
+
+  </div>
 </template>
 
 <script>
 export default {
-name: '',
-data() {
-return {
-  gotoData:[
-    {name:'可视化平台',icon:'visual',url:''},
-    {name:'综合管理平台',icon:'manage',url:''},
-  ]
-}
-},
-methods: {
-
-}
+  name: '',
+  data() {
+    return {
+      gotoData: [
+        { name: '可视化平台', icon: 'visual', url: '/visual/index' },
+        { name: '综合管理平台', icon: 'manage', url: '' }
+      ]
+    }
+  },
+  methods: {
+    goto(v) {
+      const { url } = v
+      this.$router.push({ path: url })
+    }
+  }
 }
 </script>
 

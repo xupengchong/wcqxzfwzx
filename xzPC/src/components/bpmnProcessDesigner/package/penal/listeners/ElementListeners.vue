@@ -1,3 +1,4 @@
+
 <template>
   <div class="panel-tab__content">
     <el-table :data="elementListenersList" size="mini" border>
@@ -176,7 +177,7 @@ export default {
   data() {
     return {
       elementListenersList: [], // 监听器列表
-      listenerForm: {}, // 监听器详情表单
+      listenerForm: {value:''}, // 监听器详情表单
       listenerFormModelVisible: false, // 监听器 编辑 侧边栏显示状态
       fieldsListOfListener: [],
       listenerFieldForm: {}, // 监听器 注入字段 详情表单
@@ -199,8 +200,7 @@ export default {
     resetListenersList() {
       this.bpmnElement = window.bpmnInstances.bpmnElement;
       this.otherExtensionList = [];
-      this.bpmnElementListeners =
-        this.bpmnElement.businessObject?.extensionElements?.values?.filter(ex => ex.$type === `${this.prefix}:ExecutionListener`) ?? [];
+      this.bpmnElementListeners = this.bpmnElement.businessObject?.extensionElements?.values?.filter(ex => ex.$type === `${this.prefix}:ExecutionListener`) ?? [];
       this.elementListenersList = this.bpmnElementListeners.map(listener => initListenerType(listener));
     },
     // 打开 监听器详情 侧边栏

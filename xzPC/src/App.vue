@@ -5,8 +5,8 @@
 </template>
 
 <script>
-export default  {
-  name:  'App',
+export default {
+  name: 'App',
   metaInfo() {
     return {
       title: this.$store.state.settings.dynamicTitle && this.$store.state.settings.title,
