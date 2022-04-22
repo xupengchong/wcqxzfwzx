@@ -3,16 +3,16 @@
     <headerVue />
     <el-row class="main-content" :gutter="20">
       <el-col :span="6">
-        <leftTopVue class="leftTop" />
-        <LeftMiddle class="leftMiddle" />
+        <leftTopVue ref="lt" class="leftTop" />
+        <LeftMiddle ref="lm" class="leftMiddle" />
         <leftBottonVue class="leftBotton" />
       </el-col>
       <el-col :span="12">
-        <contentTopVue />
-        <contentbottonVue />
+        <contentTopVue class="contenttop" />
+        <contentbottonVue class="contentbotton" />
       </el-col>
       <el-col :span="6">
-        <rightTopVue class="rightTop" />
+        <rightTopVue ref="rt" class="rightTop" />
         <RightMiddle class="rightMiddle" />
         <rightBottonVue class="rightBotton" />
       </el-col>
@@ -50,7 +50,13 @@ export default {
   },
 
   mounted() {
-
+    // 根据窗口变化自动调节图表大小
+    const that = this
+    window.onresize = function() {
+      that.$refs.rt.changeSize()
+      that.$refs.lt.changeSize()
+      that.$refs.lm.changeSize()
+    }
   },
   methods: {
 
@@ -69,9 +75,12 @@ export default {
     // padding: 0 10px;
     margin: 0 !important;
     padding: 0 !important;
-    .leftTop, .leftMiddle, .rightMiddle, .leftBotton, .rightTop, .rightBotton{
+    .leftTop, .leftMiddle, .rightMiddle, .leftBotton, .rightTop, .rightBotton,.contentbotton{
       margin-bottom: 10px;
-      height:calc( ( ( 100vh - 100px ) / 3 ) - 15px);
+      height:calc( ( ( 100vh - 10vh ) / 3 ) - 15px);
+    }
+    .contenttop{
+      height:calc( ( ( 100vh - 10vh ) / 3 )*2 - 10px);
     }
   }
 

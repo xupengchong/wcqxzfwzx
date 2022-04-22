@@ -1,5 +1,7 @@
 <template>
-  <div>中上</div>
+  <div>
+    <div />
+  </div>
 </template>
 
 <script>

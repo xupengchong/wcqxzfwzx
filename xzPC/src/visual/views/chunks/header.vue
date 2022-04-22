@@ -90,11 +90,11 @@ export default {
 .header{
   position: relative;
   width: 100%;
-  height: 110px;
+  height: 10vh;
   text-align: center;
   background-image: url('../../../assets/images/visualimg/titleTop.png') ;
   background-size: 100% 100%;
-  span{
+  .title{
     color: #fff;
     font-size: 1.5rem;
     line-height: 110px;
@@ -102,7 +102,8 @@ export default {
    .left,
   .right {
     position: absolute;
-    bottom: 5px;
+    top: 1.3rem;
+    color: #fff;
     text-shadow: 0 0 6px #00f7ff;
     span{
       font-size: 0.8rem;

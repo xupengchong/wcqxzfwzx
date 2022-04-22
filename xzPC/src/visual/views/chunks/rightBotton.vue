@@ -1,6 +1,6 @@
 <template>
   <div class="RB">
-    <Chunks title="数据可视化展示">
+    <Chunks title="当日超时记录">
       <div class="scroll-v">
         <div class="scrolltitle scrolltitlelist">
           <div v-for="(v, i) in list" :key="i" :style="{width:( v== ''?'60px' : '')}">{{ v }}</div>
@@ -9,10 +9,10 @@
           <vue-seamless-scroll :data="cllData" class="my-scroll-bar" :class-option="{ step: 0.5 }">
             <!-- :class="{'scrolltitle':true,'scrolltitlelist' : (i+1)%2 == 0} "    用于背景变色-->
             <div v-for="(v, i) in cllData" :key="i" ref="scrolltitles" class="scrolltitle">
-              <div style="width: 50px;">{{ v.type }}</div>
-              <div style="overflow: hidden;width: 130px; ">{{ v[2] }}</div>
-              <div style="overflow: hidden;">{{ v[3] }}</div>
-              <div style="width: 150px;">{{ v[4] }}</div>
+              <div>{{ i+1 }}</div>
+              <div>{{ v[2]+(i+1) }}</div>
+              <div>{{ v[3] }}</div>
+              <div>{{ v[4] }}</div>
               <div>{{ v[5] }}</div>
             </div>
           </vue-seamless-scroll>
@@ -29,29 +29,29 @@
 
 import Chunks from '../components/chunks'
 export default {
-  name: 'LeftBotton',
+  name: 'RightBotton',
   components: { Chunks },
   data() {
     return {
-      list: ['工单类型', '工单编号', '联系人', '时间', '状态'],
+      list: ['序号', '申请事项', '申请部门', '申请人', '申请时间'],
       cllData: [
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' },
-        { type: '1', 2: '2', 3: '3', 4: '4', 5: '5' }
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
+        { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' }
       ]
     }
   },
@@ -65,7 +65,7 @@ export default {
 .RB{
   width: 100%;
   height: 100%;
-    .scroll-v{
+  .scroll-v{
   color:#46ede8;
   padding: 0 15px;
   height: 100%;
@@ -73,15 +73,15 @@ export default {
     display: flex;
     justify-content: space-around;
     font-size: 0.6rem;
-    height: 28px;
-    line-height: 28px;
+    height: 1.5rem;
+    line-height:  1.5rem;
     div{
       width: 20%;
       text-align: center;
     }
   }
   .content{
-    height: calc(100% - 28px);
+    height: calc(100% - 1.5rem);
     .my-scroll-bar{
       width: 100%;
       height: 100%;
@@ -91,7 +91,7 @@ export default {
   }
 }
 .scrolltitlelist{
-  background-color: rgba($color: #fff, $alpha: 0.05);
+  background-color: rgba($color: #5684bc, $alpha: 0.05);
 }
 }
 </style>

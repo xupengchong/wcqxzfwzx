@@ -1,6 +1,6 @@
 <template>
   <div class="RT">
-    <Chunks title="数据可视化展示">
+    <Chunks title="案件比例">
       <div class="chart-container">
         <div ref="chart" class="chart" />
         <!-- 底座背景 -->
@@ -21,7 +21,7 @@ export default {
   components: { Chunks },
   data() {
     return {
-      lineWidth: 60,
+      lineWidth: 30,
       optionData: [
         {
           name: '启用电梯',
@@ -45,12 +45,6 @@ export default {
   },
   mounted() {
     this.initChart()
-
-    // 根据窗口变化自动调节图表大小
-    const that = this
-    window.onresize = function() {
-      that.changeSize()
-    }
   },
   methods: {
     // 初始化label样式
@@ -121,7 +115,7 @@ export default {
           fontSize: 13,
           lineHeight: 20
         },
-        startAngle: 100, // 起始角度，支持范围[0, 360]。
+        startAngle: 0, // 起始角度，支持范围[0, 360]。
         clockwise: false, // 饼图的扇区是否是顺时针排布。上述这两项配置主要是为了对齐3d的样式
         radius: ['20%', '50%'],
         center: ['50%', '50%'],
@@ -143,20 +137,17 @@ export default {
         // 从 option.series 中读取重新渲染扇形所需的参数，将是否选中取反。
         const isSelected = !this[optionName].series[params.seriesIndex].pieStatus
           .selected
-        const isHovered =
-          this[optionName].series[params.seriesIndex].pieStatus.hovered
+        const isHovered = this[optionName].series[params.seriesIndex].pieStatus.hovered
         const k = this[optionName].series[params.seriesIndex].pieStatus.k
-        const startRatio =
-          this[optionName].series[params.seriesIndex].pieData.startRatio
-        const endRatio =
-          this[optionName].series[params.seriesIndex].pieData.endRatio
+        const startRatio = this[optionName].series[params.seriesIndex].pieData.startRatio
+        const endRatio = this[optionName].series[params.seriesIndex].pieData?.endRatio
         // 如果之前选中过其他扇形，将其取消选中（对 option 更新）
         if (selectedIndex !== '' && selectedIndex !== params.seriesIndex) {
           this[optionName].series[
             selectedIndex
           ].parametricEquation = getParametricEquation(
             this[optionName].series[selectedIndex].pieData.startRatio,
-            this[optionName].series[selectedIndex].pieData.endRatio,
+            this[optionName].series[selectedIndex].pieData?.endRatio,
             false,
             false,
             k,
@@ -199,7 +190,7 @@ export default {
             isSelected = this[optionName].series[hoveredIndex].pieStatus.selected
             isHovered = false
             startRatio = this[optionName].series[hoveredIndex].pieData.startRatio
-            endRatio = this[optionName].series[hoveredIndex].pieData.endRatio
+            endRatio = this[optionName].series[hoveredIndex].pieData?.endRatio
             k = this[optionName].series[hoveredIndex].pieStatus.k
             // 对当前点击的扇形，执行取消高亮操作（对 option 更新）
             this[optionName].series[
@@ -227,7 +218,7 @@ export default {
             isHovered = true
             startRatio =
               this[optionName].series[params.seriesIndex].pieData.startRatio
-            endRatio = this[optionName].series[params.seriesIndex].pieData.endRatio
+            endRatio = this[optionName].series[params.seriesIndex].pieData?.endRatio
             k = this[optionName].series[params.seriesIndex].pieStatus.k
             // 对当前点击的扇形，执行高亮操作（对 option 更新）
             this[optionName].series[
@@ -264,7 +255,7 @@ export default {
           isHovered = false
           k = this[optionName].series[hoveredIndex].pieStatus.k
           startRatio = this[optionName].series[hoveredIndex].pieData.startRatio
-          endRatio = this[optionName].series[hoveredIndex].pieData.endRatio
+          endRatio = this[optionName].series[hoveredIndex].pieData?.endRatio
           // 对当前点击的扇形，执行取消高亮操作（对 option 更新）
           this[optionName].series[
             hoveredIndex
@@ -286,8 +277,7 @@ export default {
     },
     // 自适应宽高
     changeSize() {
-      this.lineWidth = (window.innerWidth / 1920) * 30
-      console.log(this.statusChart)
+      console.log('1')
       this.statusChart.resize()
     }
   }

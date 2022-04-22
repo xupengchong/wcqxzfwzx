@@ -36,12 +36,14 @@ export default {
   .title{
     color: #fff;
     font-size: 1rem;
-    width: 8rem;
+    width: 7rem;
+    text-align: center;
     margin-left:7rem;
     line-height: 4vh;
+    text-shadow: 0 0 7px #00f7ff;
   }
   .slot-v{
-  height: calc( 100% - 4vh ) ;
+    height: calc( 100% - 4vh ) ;
 
   }
 }

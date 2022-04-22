@@ -64,7 +64,7 @@
     series[i].pieData.endRatio = endValue / sumValue
     series[i].parametricEquation = getParametricEquation(
       series[i].pieData.startRatio,
-      series[i].pieData.endRatio,
+      series[i].pieData?.endRatio,
       false,
       false,
       k,
@@ -126,7 +126,7 @@
             params.seriesName !== 'pie2d'
         ) {
           const bfb = (
-            (option.series[params.seriesIndex].pieData.endRatio -
+            (option.series[params.seriesIndex].pieData?.endRatio -
                 option.series[params.seriesIndex].pieData.startRatio) *
               100
           ).toFixed(2)
