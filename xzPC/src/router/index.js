@@ -207,7 +207,7 @@ const router =  new Router({
 
 
 router.beforeEach((to, from, next) => {
-  console.log('loy',to,from)
+  // console.log('loy',to,from)
   next()
 })
 

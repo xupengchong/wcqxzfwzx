@@ -45,9 +45,9 @@ export default {
         },
         grid: {
           top: '15vh',
-          left: this.chartsData.titleRight !== 'null' ? '14%' : '7%',
+          left: this.chartsData?.titleRight !== 'null' ? '14%' : '7%',
           bottom: '2%',
-          right: this.chartsData.titleRight === 'null' ? '14%' : '7%',
+          right: this.chartsData?.titleRight === 'null' ? '14%' : '7%',
           containLabel: true
         },
         xAxis: {

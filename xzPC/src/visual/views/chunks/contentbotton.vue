@@ -53,6 +53,7 @@ export default {
             }
           ])
         ],
+        // backgroundColor: '#020b1e',
         tooltip: {
           trigger: 'axis',
           axisPointer: {

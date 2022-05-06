@@ -73,8 +73,8 @@ export default {
     background-image: url('../../../assets/images/visualimg/leftTop.png');
     background-size: 100% 100%;
     width: 1rem;
-    height: 16vh ;
-    margin: 5vh 0;
+    height: 22vh ;
+    margin: 2vh 0;
   }
   .left,.right{
     width: calc((100% - 1rem) / 2);

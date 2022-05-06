@@ -55,44 +55,21 @@ module.exports = {
       }
     }
   },
-  pages: {
-    index: {
-      entry: 'src/main.js',
-      template: 'public/index.html',
-      fileName: 'index.html',
-      chunks: ['chunk-vendors', 'chunk-common', 'index']
-    },
-    // case: {
-    //   entry: 'src/pages/case/main.js',
-    //   template: 'public/index.html',
-    //   fileName: 'case.html',
-    //   chunks: ['chunk-vendors', 'chunk-common', 'case']
-    // },
-    visual: {
-      entry: 'src/visual/main.js',
-      template: 'public/index.html',
-      fileName: 'visual.html',
-      chunks: ['chunk-vendors', 'chunk-common', 'visual']
-    },
-    // supervise: {
-    //   entry: 'src/pages/supervise/main.js',
-    //   template: 'public/index.html',
-    //   fileName: 'supervise.html',
-    //   chunks: ['chunk-vendors', 'chunk-common', 'supervise']
-    // },
-    // application: {
-    //   entry: 'src/pages/application/main.js',
-    //   template: 'public/index.html',
-    //   fileName: 'application.html',
-    //   chunks: ['chunk-vendors', 'chunk-common', 'application']
-    // },
-    // manage: {
-    //   entry: 'src/pages/manage/main.js',
-    //   template: 'public/index.html',
-    //   fileName: 'manage.html',
-    //   chunks: ['chunk-vendors', 'chunk-common', 'manage']
-    // }
-  },
+  // pages: {
+  //   index: {
+  //     entry: 'src/main.js',
+  //     template: 'public/index.html',
+  //     fileName: 'index.html',
+  //     chunks: ['chunk-vendors', 'chunk-common', 'index']
+  //   },
+  //   visual: {
+  //     entry: 'src/visual/main.js',
+  //     template: 'public/index.html',
+  //     fileName: 'visual.html',
+  //     chunks: ['chunk-vendors', 'chunk-common', 'visual']
+  //   },
+
+  // },
   configureWebpack: {
     name: name,
     resolve: {
@@ -101,15 +78,15 @@ module.exports = {
         'visual': resolve('src/visual')
       }
     },
-    plugins: [
-      // http://doc.ruoyi.vip/ruoyi-vue/other/faq.html#使用gzip解压缩静态文件
-      new CompressionPlugin({
-        test: /\.(js|css|html)?$/i,     // 压缩文件格式
-        filename: '[path].gz[query]',   // 压缩后的文件名
-        algorithm: 'gzip',              // 使用gzip压缩
-        minRatio: 0.8                   // 压缩率小于1才会压缩
-      })
-    ],
+    // plugins: [
+    //   // http://doc.ruoyi.vip/ruoyi-vue/other/faq.html#使用gzip解压缩静态文件
+    //   new CompressionPlugin({
+    //     test: /\.(js|css|html)?$/i,     // 压缩文件格式
+    //     filename: '[path].gz[query]',   // 压缩后的文件名
+    //     algorithm: 'gzip',              // 使用gzip压缩
+    //     minRatio: 0.8                   // 压缩率小于1才会压缩
+    //   })
+    // ],
   },
   chainWebpack(config) {
     config.plugins.delete('preload') // TODO: need test

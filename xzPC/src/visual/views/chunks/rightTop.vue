@@ -14,7 +14,7 @@
 import Chunks from '../components/chunks'
 import { getPie3D, getParametricEquation } from '../charts/charts' // 工具类js，页面路径自己修改
 
-const color = ['#005aff', '#7dfff4', '#25a679']
+const color = ['#005aff', '#7dfff4', '#25a679', '#F9583C', '#4A37C8', '#FBC014']
 
 export default {
   name: 'RightTop',
@@ -24,16 +24,24 @@ export default {
       lineWidth: 30,
       optionData: [
         {
-          name: '启用电梯',
-          value: 10
-        },
-        {
-          name: '启用电梯2',
+          name: '刑事',
           value: 20
         },
         {
-          name: '停用电梯',
-          value: 30
+          name: '办案',
+          value: 20
+        },
+        {
+          name: '仲裁',
+          value: 70
+        },
+        {
+          name: '行政',
+          value: 10
+        },
+        {
+          name: '民事',
+          value: 20
         }
       ],
       statusChart: null,
@@ -58,9 +66,7 @@ export default {
             show: true,
             color: color[index],
             formatter: [
-              '{b|{b}}',
-              '{c|{c}}{b|台}',
-              '{d|{d}%}'
+              '{b|{b}} {d|{d}%}'
             ].join('\n'), // 用\n来换行
             rich: {
               b: {
@@ -92,9 +98,9 @@ export default {
               width: 1,
               color: 'rgba(255,255,255,0.7)'
             },
-            length: this.lineWidth,
-            length2: this.lineWidth,
-            maxSurfaceAngle: 70
+            length: 20,
+            length2: 30, // this.lineWidth,
+            maxSurfaceAngle: 30
           }
         }
       })
@@ -103,11 +109,11 @@ export default {
     initChart() {
       this.statusChart = this.$echarts.init(this.$refs.chart)
       // 传入数据生成 option, 构建3d饼状图, 参数工具文件已经备注的很详细
-      this.option = getPie3D(this.optionData, 0.8, 160, 20, 20, 0.8)
+      this.option = getPie3D(this.optionData, 0.8, 160, 28, 26, 0.5)
       this.statusChart.setOption(this.option)
       // 是否需要label指引线，如果要就添加一个透明的2d饼状图并调整角度使得labelLine和3d的饼状图对齐，并再次setOption
       this.option.series.push({
-        name: '电梯状态', // 自己根据场景修改
+        name: '', // 自己根据场景修改
         backgroundColor: 'transparent',
         type: 'pie',
         label: {
@@ -115,9 +121,9 @@ export default {
           fontSize: 13,
           lineHeight: 20
         },
-        startAngle: 0, // 起始角度，支持范围[0, 360]。
+        startAngle: -40, // 起始角度，支持范围[0, 360]。
         clockwise: false, // 饼图的扇区是否是顺时针排布。上述这两项配置主要是为了对齐3d的样式
-        radius: ['20%', '50%'],
+        radius: ['30%', '80%'],
         center: ['50%', '50%'],
         data: this.optionData,
         itemStyle: {
@@ -277,7 +283,6 @@ export default {
     },
     // 自适应宽高
     changeSize() {
-      console.log('1')
       this.statusChart.resize()
     }
   }

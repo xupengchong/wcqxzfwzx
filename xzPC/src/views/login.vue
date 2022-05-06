@@ -3,9 +3,9 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">婺服查</h3>
       <el-form-item prop="tenantName">
-        <el-input v-model="loginForm.tenantName" type="text" auto-complete="off" placeholder="租户">
+        <!-- <el-input v-model="loginForm.tenantName" type="text" auto-complete="off" placeholder="租户">
           <svg-icon slot="prefix" icon-class="tree" class="el-input__icon input-icon" />
-        </el-input>
+        </el-input> -->
       </el-form-item>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
@@ -191,13 +191,13 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" scoped lang="scss">
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url("http://static.yudao.iocoder.cn/login-background.jpg");
+  background-image: url("../assets/images/backGruond.jpg");
   background-size: cover;
 }
 .title {

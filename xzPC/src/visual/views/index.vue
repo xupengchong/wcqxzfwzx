@@ -9,7 +9,7 @@
       </el-col>
       <el-col :span="12">
         <contentTopVue class="contenttop" />
-        <contentbottonVue class="contentbotton" />
+        <contentbottonVue ref="cb" class="contentbotton" />
       </el-col>
       <el-col :span="6">
         <rightTopVue ref="rt" class="rightTop" />
@@ -56,6 +56,7 @@ export default {
       that.$refs.rt.changeSize()
       that.$refs.lt.changeSize()
       that.$refs.lm.changeSize()
+      that.$refs.cb.changeSize()
     }
   },
   methods: {

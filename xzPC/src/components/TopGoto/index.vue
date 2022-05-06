@@ -2,7 +2,7 @@
   <div class="main">
     <div class="goto">
       <div v-for="(item, index) in gotoData" :key="index" class="goto-item">
-        <a :href="item.url">
+        <a @click="goto(item)">
           <svg-icon :icon-class="item.icon" class="icon" />
           <p>{{ item.name }}</p>
         </a>

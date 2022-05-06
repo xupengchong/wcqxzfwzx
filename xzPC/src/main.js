@@ -69,7 +69,12 @@ import '@/icons'
 import axios from 'axios'
 Vue.prototype.$axios = axios
 import '@/styles/index.scss'
-
+import scroll from 'vue-seamless-scroll' // 自动滚动
+Vue.use(scroll)
+import * as echarts from 'echarts'
+import 'echarts-gl' // 3d图表库
+Vue.prototype.$echarts = echarts
+import './utils/font.js'
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api

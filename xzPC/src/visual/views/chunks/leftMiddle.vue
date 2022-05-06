@@ -4,6 +4,10 @@
       <div class="middle">
         <div class="left">
           <div ref="chart" class="chart" />
+          <div class="content">
+            <div class="num">99%</div>
+            <div>平均满意度</div>
+          </div>
         </div>
         <div class="right">
           <div v-for="(v,i) in tips" :key="i" class="item">
@@ -11,7 +15,7 @@
               <div :style="{backgroundColor:v.color}" class="pic" />
               <div>{{ v.name }}</div>
             </div>
-            <div class="bottom">50</div>
+            <div class="bottom">50%</div>
           </div>
         </div>
       </div>
@@ -48,9 +52,10 @@ export default {
       this.statusChart = this.$echarts.init(this.$refs.chart)
       // 传入数据生成 option, 构建3d饼状图, 参数工具文件已经备注的很详细
       const option = {
-        // tooltip: {
-        //   trigger: 'item'
-        // },
+        tooltip: {
+          trigger: 'item',
+          formatter: `{c} {b}`
+        },
         series: [
           {
             name: 'Access From',
@@ -89,7 +94,7 @@ export default {
             },
             emphasis: {
               label: {
-                show: true,
+                show: false,
                 fontSize: '10',
                 fontWeight: 'bold',
                 formatter: `{c}
@@ -134,6 +139,19 @@ export default {
       background: url('../../../assets/images/visualimg/lcric.png') no-repeat;
       background-size: 13vh 13vh;
       background-position: center;
+      position:relative;
+      .content{
+        position: absolute;
+        left: 5.5rem;
+        top: 10vh;
+        font-size: 0.7rem;
+        color: #fff;
+        text-align: center;
+        .num{
+          font-size: 1rem;
+          font-weight: bold;
+        }
+      }
     }
     .right{
       width: 8rem;

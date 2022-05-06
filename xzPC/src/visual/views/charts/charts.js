@@ -155,12 +155,41 @@
       boxHeight: boxHeight, // 圆环的高度
       viewControl: {
         // 3d效果可以放大、旋转等，请自己去查看官方配置
+
         alpha, // 角度
         distance, // 调整视角到主体的距离，类似调整zoom
         rotateSensitivity: 0, // 设置为0无法旋转
         zoomSensitivity: 0, // 设置为0无法缩放
         panSensitivity: 0, // 设置为0无法平移
-        autoRotate: false // 自动旋转
+        autoRotate: false ,// 自动旋转
+      },
+      axisLabel:{
+        show:true,
+        formatter: [
+          '{b|{b}} {d|{d}%}'
+        ].join('\n'), // 用\n来换行
+        // rich: {
+        //   b: {
+        //     color: '#fff',
+        //     lineHeight: 35,
+        //     align: 'left',
+        //     fontSize: '0.6rem'
+
+        //   },
+        //   c: {
+        //     fontSize: '1rem',
+        //     color: '#fff',
+        //     textShadowColor: '#1c90a6',
+        //     textShadowOffsetX: 0,
+        //     textShadowOffsetY: 2,
+        //     textShadowBlur: 5
+        //   },
+        //   d: {
+        //     color: '#F9583C',
+        //     align: 'left',
+        //     fontSize: '0.6rem'
+        //   }
+        // }
       }
     },
     series: series

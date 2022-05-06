@@ -6,10 +6,10 @@
           <div v-for="(v, i) in list" :key="i" :style="{width:( v== ''?'60px' : '')}">{{ v }}</div>
         </div>
         <div v-if="cllData.length" class="content">
-          <vue-seamless-scroll :data="cllData" class="my-scroll-bar" :class-option="{ step: 0.5 }">
+          <vue-seamless-scroll :data="cllData" class="my-scroll-bar" :class-option="{ step: 0.2 }">
             <!-- :class="{'scrolltitle':true,'scrolltitlelist' : (i+1)%2 == 0} "    用于背景变色-->
             <div v-for="(v, i) in cllData" :key="i" ref="scrolltitles" class="scrolltitle">
-              <div>{{ i+1 }}</div>
+              <div :style="{color:colors[i] }">{{ i+1 }}</div>
               <div>{{ v[2]+(i+1) }}</div>
               <div>{{ v[3] }}</div>
               <div>{{ v[4] }}</div>
@@ -52,7 +52,8 @@ export default {
         { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
         { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' },
         { type: '1', 2: '申请事项', 3: '申请部门', 4: '张三', 5: '2022-4-19' }
-      ]
+      ],
+      colors: ['#ffc300', '#ffc300', '#ffc300', '#ff6c1d', '#ff6c1d']
     }
   },
   methods: {
